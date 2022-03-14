@@ -210,7 +210,7 @@
         <br>
  -->
         <!-- WhatsApp -->
-        <a class="button button-whatsapp" href="https://web.whatsapp.com/send?phone=+573194960898" target="_blank" rel="noopener"><img class="icon"
+        <a id="whatsapp" class="button button-whatsapp" href="#" target="_blank" rel="noopener"><img class="icon"
             src="images/icons/whatsapp.svg" alt="WhatsApp Logo">WhatsApp</a>
         <br>
 
@@ -282,12 +282,33 @@
         <br>
         <p style="font-size: 12px;">Powered by <a href="https://iku.solutions" target="_blank" rel="noopener">IKU Solutions</a></p>
 
+
       </div>
     </div>
   </div>
 
-  <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <!-- End Document –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script>
+              /* Storing user's device details in a variable*/
+              let details = navigator.userAgent;
+              let a = document.getElementById('whatsapp');
+
+              /* Creating a regular expression 
+              containing some mobile devices keywords 
+              to search it in details string*/
+              let regexp = /android|iphone|kindle|ipad/i;
+         
+              /* Using test() method to search regexp in details
+              it returns boolean value*/
+              let isMobileDevice = regexp.test(details);
+         
+              if (isMobileDevice) {
+                     a.href = 'https://api.whatsapp.com/send?phone=+573194960898';
+
+              } else {
+                     a.href = 'https://web.whatsapp.com/send?phone=+573194960898';
+              }
+       </script>
 </body>
 
 </html>
